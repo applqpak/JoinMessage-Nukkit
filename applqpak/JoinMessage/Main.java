@@ -56,6 +56,19 @@ public class Main extends PluginBase implements Listener
 
   }
 
+  @EventHandler
+
+  public void onPlayerJoin(PlayerJoinEvent event)
+  {
+
+    Player player = event.getPlayer();
+
+    String joinMessage = this.cfg.get("message");
+
+    player.sendMessage(joinMessage);
+
+  }
+
   @Override
 
   public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
