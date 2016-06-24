@@ -20,6 +20,27 @@ public class Main extends PluginBase implements Listener
 
   public LinkedHashMap cfg = new LinkedHashMap();
 
+  public String implode(String glue, String[] strArray)
+  {
+
+    String ret = "";
+
+    for(int i = 0; i < strArray.length; i++)
+    {
+
+      if(strArray[i].trim() != "")
+      {
+
+        ret += (i == strArray.length - 1) ? strArray[i] : strArray[i] + glue;
+
+      }
+
+    }
+
+    return ret;
+
+  }
+
   @Override
 
   public void onEnable()
@@ -39,6 +60,54 @@ public class Main extends PluginBase implements Listener
 
   public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
   {
+
+    switch(cmd.getName())
+    {
+
+      case "joinmessage":
+
+        if(args[0] == null)
+        {
+
+          sender.sendMessage(TextFormat.RED + "Invalid usage. Usage: /joinmessage set < message >");
+
+        }
+        else
+        {
+
+          if(args[0] == "set")
+          {
+
+            sender.sendMessage(TextFormat.RED + "Invalid usage. Usage: /joinmessage set < message >");
+
+          }
+          else
+          {
+
+            if(args[1] == null)
+            {
+
+              sender.sendMessage(TextFormat.RED + "Invalid usage. Usage: /joinmessage set < message >");
+
+            }
+            else
+            {
+
+              this.cfg.set("message", this.implode(" ", args));
+
+              this.cfg.save();
+
+              sender.sendMessage(TextFormat.GREEN + "Successfully set the join message.");
+
+            }
+
+          }
+
+        }
+
+      break;
+
+    }
 
     return true;
 
