@@ -1,0 +1,15 @@
+name: JoinMessage
+version: "1.0.0"
+author: applqpak
+api: ["1.0.0"]
+main: applqpak.JoinMessage.Main
+description: Send a message to the users that join your server!
+commands:
+  joinmessage:
+    description: Core JoinMesage command.
+    usage: "/joinmessage set < message >"
+    aliases: ["jm"]
+    permission: joinmessage.command
+permissions:
+  joinmessage.command:
+    default: op
