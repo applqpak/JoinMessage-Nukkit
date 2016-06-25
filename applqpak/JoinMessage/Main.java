@@ -7,7 +7,7 @@ import cn.nukkit.utils.Config;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.event.EventHandler;
-import cn.nukkit.event.PlayerJoinEvent;
+import cn.nukkit.event.player.PlayerJoinEvent;
 import cn.nukkit.Player;
 
 import java.util.LinkedHashMap;
@@ -63,7 +63,7 @@ public class Main extends PluginBase implements Listener
 
     Player player = event.getPlayer();
 
-    String joinMessage = this.cfg.get("message");
+    String joinMessage = this.config.get("message");
 
     player.sendMessage(joinMessage);
 
@@ -106,9 +106,9 @@ public class Main extends PluginBase implements Listener
             else
             {
 
-              this.cfg.set("message", this.implode(" ", args));
+              this.config.set("message", this.implode(" ", args));
 
-              this.cfg.save();
+              this.config.save();
 
               sender.sendMessage(TextFormat.GREEN + "Successfully set the join message.");
 
