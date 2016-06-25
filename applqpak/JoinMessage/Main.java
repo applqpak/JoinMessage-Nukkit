@@ -79,7 +79,7 @@ public class Main extends PluginBase implements Listener
 
       case "joinmessage":
 
-        if(args[0] == null)
+        if(args.length == 0)
         {
 
           sender.sendMessage(TextFormat.RED + "Invalid usage. Usage: /joinmessage set < message >");
@@ -105,6 +105,8 @@ public class Main extends PluginBase implements Listener
             }
             else
             {
+
+              args[0] = "";
 
               this.config.set("message", this.implode(" ", args));
 
