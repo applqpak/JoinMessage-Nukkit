@@ -63,7 +63,7 @@ public class Main extends PluginBase implements Listener
 
     Player player = event.getPlayer();
 
-    String joinMessage = this.config.get("message");
+    String joinMessage = String.valueOf(this.config.get("message"));
 
     player.sendMessage(joinMessage);
 
