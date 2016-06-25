@@ -97,7 +97,7 @@ public class Main extends PluginBase implements Listener
           else
           {
 
-            if(args[1] == null)
+            if(args.length == 1)
             {
 
               sender.sendMessage(TextFormat.RED + "Invalid usage. Usage: /joinmessage set < message >");
