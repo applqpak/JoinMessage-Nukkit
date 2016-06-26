@@ -52,6 +52,8 @@ public class Main extends PluginBase implements Listener
 
     this.config = new Config(new File(this.getDataFolder(), "config.yml"), Config.YAML, this.cfg);
 
+    this.getServer().getPluginManager().registerEvents(this, this);
+
     this.getLogger().info(TextFormat.GREEN + "Enabled.");
 
   }
